@@ -1,0 +1,12 @@
+# /public_html/.htaccess  (raiz do domínio)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Deixa arquivos e pastas reais passarem direto
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Tudo o resto vai para index.php
+  RewriteRule ^ index.php [L]
+</IfModule>
